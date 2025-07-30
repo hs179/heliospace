@@ -13,7 +13,7 @@ export class StudentService  {
   constructor() {
     this.studentvalue.subscribe((data) => {
       this.database.push(data);
-      console.log('Database:', this.database); // Correct: logs the array
+      console.log('Database:', this.database); // Correct: logs the array.
     });
    }
 }
