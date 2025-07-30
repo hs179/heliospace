@@ -1,0 +1,65 @@
+.student-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 24px 24px 24px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.form-header {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #007bff;
+    letter-spacing: 1px;
+}
+
+.student-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.student-form-container label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.student-form-container input,
+.student-form-container button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.student-form-container input:focus {
+    border-color: #007bff;
+    outline: none;
+    background: #eef6fb;
+}
+
+.student-form-container button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.student-form-container button:hover {
+    background-color: #0056b3;
+}

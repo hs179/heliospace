@@ -1,0 +1,34 @@
+<!-- Debug information -->
+<div style="background: #f0f0f0; padding: 10px; margin: 10px; border: 1px solid #ccc;">
+  <h3>Debug Info:</h3>
+  <p>Component loaded: ✅</p>
+  <p>Student object: {{ student | json }}</p>
+  <p>Student exists: {{ student ? 'Yes' : 'No' }}</p>
+  <p>Student name: {{ student?.name }}</p>
+</div>
+
+<div class="student-detail-card" *ngIf="student">
+  <h2>Student Details</h2>
+  <div class="detail-row">
+    <span class="label">Name:</span>
+    <span class="value">{{ student.name }}</span>
+  </div>
+  <div class="detail-row">
+    <span class="label">Age:</span>
+    <span class="value">{{ student.age }}</span>
+  </div>
+  <div class="detail-row">
+    <span class="label">Course:</span>
+    <span class="value">{{ student.course }}</span>
+  </div>
+  <div class="detail-row">
+    <span class="label">Join Date:</span>
+    <span class="value">{{ student.joinDate | date }}</span>
+  </div>
+</div>
+
+<!-- Show this if no student data -->
+<div *ngIf="!student" style="text-align: center; padding: 50px; color: #666;">
+  <h3>No student data available</h3>
+  <p>Please select a student from the list to view details.</p>
+</div>

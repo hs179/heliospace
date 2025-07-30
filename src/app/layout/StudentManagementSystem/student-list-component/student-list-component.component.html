@@ -1,0 +1,27 @@
+<div class="student-table-container">
+  <h2>Student List</h2>
+  <table class="student-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Course</th>
+        <th>Join Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.course }}</td>
+        <td>{{ student.joinDate | date }}</td>
+        <td>
+          <button (click)="viewStudent(student)">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

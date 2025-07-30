@@ -1,0 +1,24 @@
+<div class="student-form-container">
+    <h2 class="form-header">Student Details</h2>
+    <form [formGroup]="studentform">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" placeholder="Enter student name" />
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input id="age" type="text" formControlName="age" placeholder="Enter age" />
+        </div>
+        <div class="form-group">
+            <label for="course">Course</label>
+            <input id="course" type="text" formControlName="course" placeholder="Enter course" />
+        </div>
+        <div class="form-group">
+            <label for="joinDate">Join Date</label>
+            <input id="joinDate" type="date" formControlName="joinDate" />
+        </div>
+        <div class="form-group">
+            <button type="submit" (click)="onsubmit()">Add Student</button>
+        </div>
+    </form>
+</div>

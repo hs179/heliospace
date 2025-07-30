@@ -1,0 +1,25 @@
+<div class="bg-light border-right vh-100 p-3" style="width: 200px;">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="toggleHome()" [attr.aria-expanded]="homeOpen">
+        Home
+      </a>
+      <ul *ngIf="homeOpen" class="nav flex-column ms-3">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/StdFrom">Student Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/StdList">Student List</a>
+        </li>
+        
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/StdDetails">Student Detail</a>
+        </li> -->
+      </ul>
+    </li>
+    <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/services">Services</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/profile">Profile</a></li>
+  </ul>
+</div>

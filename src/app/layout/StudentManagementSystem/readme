@@ -1,0 +1,5 @@
+Component/Pipe	Key Functionality
+StudentListComponent	Fetch and display students, filter by name, delete student
+StudentFormComponent	Form with two-way data binding to add a student
+StudentDetailComponent	Show detailed student info (reusable component)
+FilterPipe	Search/filter logic based on student name
