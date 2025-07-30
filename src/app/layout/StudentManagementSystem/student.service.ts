@@ -12,7 +12,6 @@ export class StudentService  {
 
   constructor() {
     this.studentvalue.subscribe((data) => {
-      console.log(data)
       this.database.push(data);
       console.log('Database:', this.database); // Correct: logs the array
     });
