@@ -1,31 +1,40 @@
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-scroll',
   standalone: true,
-  imports: [HttpClientModule, CommonModule],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './scroll.component.html',
-  styleUrl: './scroll.component.scss'
 })
 export class ScrollComponent implements OnInit {
 
-  constructor( private http:HttpClient){}
+  posts: any[] = [];  // data to show
+  page = 0;           // current page number
+  limit = 10;         // how many items per load
 
-  private URL="https://jsonplaceholder.typicode.com/posts"
-  showData:any[]=[]
-  ngOnInit(){
-    this.fetchData()
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.loadPosts();
   }
 
-  fetchData(){
-   const respones =  this.http.get(this.URL)
-   respones.subscribe(data => {
-    const finaldata = JSON.parse(JSON.stringify(data))
-    this.showData = finaldata
-    console.log(this.showData)
-   })
+  loadPosts() {
+    const url = `https://jsonplaceholder.typicode.com/posts?_start=${this.page * this.limit}&_limit=${this.limit}`;
+    this.http.get<any[]>(url).subscribe(data => {
+      this.posts = [...this.posts, ...data]; // append new posts
+      this.page++; // next time, load next page
+    });
   }
 
+  @HostListener('window:scroll', [])
+  onScroll() {
+    const bottomReached =
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
+
+    if (bottomReached) {
+      this.loadPosts();
+    }
+  }
 }

@@ -1,21 +1,38 @@
-.card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-weight: 500;
-    
+.post-card {
+    // make the animation explicit and predictable
+    overflow: hidden;
+    max-height: 120px;               // collapsed size (adjust)
+    transition: max-height 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    transform-origin: center top;
+    cursor: pointer;
+    border-radius: 8px;
+  
+    .card-body {
+      padding: 0.75rem;             // keep Bootstrap spacing if needed
+    }
+  
+    .title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+  
+    .post-body {
+      margin: 0;                    // avoid extra margins that affect height
+      opacity: 0;
+      max-height: 0;                // hidden by default
+      overflow: hidden;
+      transition: opacity 0.25s ease 0.05s, max-height 0.35s ease;
+    }
+  
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    }
-    
-    span:first-child {
-      font-weight: bold;
-      margin-right: 5px;
-    }
-    
-    span:last-child {
-      opacity: 0.9;
+      transform: scale(1.02);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      max-height: 1000px;           // big enough to show all content
+  
+      .post-body {
+        opacity: 1;
+        max-height: 800px;         // should be <= parent's max-height
+      }
     }
   }
+  
